@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Form
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-5 w-25">
+      <h3 class="mt-5 pt-3">Move Reating Form</h3>
+        <form method = "POST">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="exampleInputName" class="form-label">Name</label>
+              <input type="Name" class="form-control" id="exampleInputName" aria-describedby="nameHelp" name="userName">
+              <div id="nameHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="userEmail">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+
+            <select class="form-select mb-4" aria-label="Default select example" name="select">
+              <option selected>Select menu</option>
+              <option value="1">One Star</option>
+              <option value="2">Two Star</option>
+              <option value="3">Three Start</option>
+              <option value="4">Four Start</option>
+              <option value="5">Five Start</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+
+    <div class="container">
+      <p>Name: {{name}}</p>
+      <p>Name: {{email}}</p>
+      <p>Name: {{select}}</p>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    All Books
+{% endblock title %}
+
+{% block content %}
+    <h1 class="text-center mt-4 mb-5">Here is my all books</h1>
+
+    {% comment %} for card view {% endcomment %}
+    {% comment %} <section class="container">
+        <div class="row">
+            {% for item in books %}
+            <div class=" col-12 col-sm-6 col-md-4 col-lg-3 mb-3 mb-sm-0 g-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <p>book id - {{item.id}}</p>
+                        <p>book name - {{item.book_name}}</p>
+                        <p>author name - {{item.author}}</p>
+                        <p>author email - {{item.author_email}}</p>
+                        <p>category - {{item.category}}</p>
+                        <p>publish county - {{item.publish_country}}</p>
+                        <p>first published - {{item.first_publication}}</p>
+                        <p>last published - {{item.last_publication}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section> {% endcomment %}
+
+    {% if books %}
+    <table class="table table-dark table-striped container-fluid">
+        <tr>
+            <th>ID</th>
+            <th>Book Name</th>
+            <th>Author Name</th>
+            <th>Author Email</th>
+            <th>Category</th>
+            <th>Published Country</th>
+            <th>First Published</th>
+            <th>Last Published</th>
+            <th>Action</th>
+        </tr>
+
+        {% for item in  books %}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.book_name}}</td>
+                <td>{{item.author}}</td>
+                <td>{{item.author_email}}</td>
+                <td>{{item.category}}</td>
+                <td>{{item.publish_country}}</td>
+                <td>{{item.first_publication}}</td>
+                <td>{{item.last_publication}}</td>
+                <td><a href="{% url 'edit_book' id=item.id %}" class="btn btn-success mx-2">Edit</a> 
+                <a href="{% url 'delete_book' id=item.id %}" class="btn btn-danger mx-2">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h2 class="text-center">No Data Available Here: </h2>
+    {% endif %}
+  
+{% endblock content %}

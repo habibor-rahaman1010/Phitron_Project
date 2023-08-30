@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+}
+.head{
+    text-align: center;
+    color: teal;
+    padding: 30px;
+}
+.image img{
+    display: block;
+    margin: auto;
+}
